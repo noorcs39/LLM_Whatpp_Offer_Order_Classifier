@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search - Bag Offer App</title>
+    
+    <!-- PWA support -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#1e40af" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="apple-touch-icon" href="/images/icon-192.png" />
+
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .search-highlight {
+            background-color: #fef3c7;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        .message-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .message-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        /* Mobile responsive fixes */
+        @media (max-width: 768px) {
+            #searchInput {
+                font-size: 16px; /* Prevents zoom on iOS */
+                padding: 12px 16px;
+                line-height: 1.5;
+                -webkit-appearance: none;
+                appearance: none;
+            }
+            
+            #searchInput::placeholder {
+                color: #6b7280;
+                opacity: 1;
+            }
+            
+            #searchInput:focus {
+                outline: none;
+                box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.5);
+            }
+        }
+        
+        /* Ensure text is visible */
+        input[type="text"] {
+            color: #111827 !important;
+            background-color: rgba(255, 255, 255, 0.98) !important;
+        }
+    </style>
+</head>
+<body class="bg-blue-900 text-white">
+  <nav class="bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 shadow-2xl sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <div class="flex items-center space-x-3">
+          <div class="flex-shrink-0">
+            <div class="w-12 h-12 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-xl flex items-center justify-center shadow-lg">
+              <span class="text-2xl">👜</span>
+            </div>
+          </div>
+          <div>
+            <h1 class="text-2xl font-bold text-white tracking-tight">BagOffer</h1>
+            <p class="text-blue-200 text-xs">Premium Bags Marketplace</p>
+          </div>
+        </div>
+        
+        <!-- Desktop Menu -->
+        <div class="hidden md:block">
+          <div class="ml-10 flex items-baseline space-x-1">
+            <a href="index.html" class="text-blue-200 hover:bg-blue-700 hover:bg-opacity-75 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200">Home</a>
+            <a href="match.html" class="text-blue-200 hover:bg-blue-700 hover:bg-opacity-75 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200">Match</a>
+            <a href="orders.html" class="text-blue-200 hover:bg-blue-700 hover:bg-opacity-75 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200">Orders</a>
+            <a href="offers.html" class="text-blue-200 hover:bg-blue-700 hover:bg-opacity-75 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200">Offers</a>
+            <a href="search.html" class="text-white bg-blue-700 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200">Search</a>
+            <a href="customers.html" class="text-blue-200 hover:bg-blue-700 hover:bg-opacity-75 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200">Customers</a>
+            <a href="send.html" class="text-blue-200 hover:bg-blue-700 hover:bg-opacity-75 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200">Send</a>
+            <a href="whatsapp-manager.html" class="bg-yellow-500 text-blue-900 hover:bg-yellow-400 px-3 py-2 rounded-md text-sm font-bold transition-all duration-200 shadow-sm">WhatsApp</a>
+            <a href="about.html" class="text-blue-200 hover:bg-blue-700 hover:bg-opacity-75 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200">About</a>
+          </div>
+        </div>
+        
+        <!-- Mobile menu button -->
+        <div class="md:hidden">
+          <button type="button" class="bg-blue-800 inline-flex items-center justify-center p-2 rounded-md text-blue-200 hover:text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-blue-800 focus:ring-white" onclick="toggleMenu()">
+            <span class="sr-only">Open main menu</span>
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="md:hidden hidden" id="mobile-menu">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-blue-800 bg-opacity-95 backdrop-blur-sm">
+        <a href="index.html" class="text-blue-200 hover:bg-blue-700 hover:bg-opacity-75 block px-3 py-2 rounded-md text-base font-medium">Home</a>
+        <a href="match.html" class="text-blue-200 hover:bg-blue-700 hover:bg-opacity-75 block px-3 py-2 rounded-md text-base font-medium">Match</a>
+        <a href="orders.html" class="text-blue-200 hover:bg-blue-700 hover:bg-opacity-75 block px-3 py-2 rounded-md text-base font-medium">Orders</a>
+        <a href="offers.html" class="text-blue-200 hover:bg-blue-700 hover:bg-opacity-75 block px-3 py-2 rounded-md text-base font-medium">Offers</a>
+        <a href="search.html" class="text-white bg-blue-700 block px-3 py-2 rounded-md text-base font-medium">Search</a>
+        <a href="customers.html" class="text-blue-200 hover:bg-blue-700 hover:bg-opacity-75 block px-3 py-2 rounded-md text-base font-medium">Customers</a>
+        <a href="send.html" class="text-blue-200 hover:bg-blue-700 hover:bg-opacity-75 block px-3 py-2 rounded-md text-base font-medium">Send</a>
+        <a href="whatsapp-manager.html" class="bg-yellow-500 text-blue-900 hover:bg-yellow-400 block px-3 py-2 rounded-md text-base font-bold">WhatsApp</a>
+        <a href="about.html" class="text-blue-200 hover:bg-blue-700 hover:bg-opacity-75 block px-3 py-2 rounded-md text-base font-medium">About</a>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Main Content -->
+    <main class="min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900">
+        <!-- Header Section -->
+        <div class="relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-yellow-400 to-orange-500 opacity-10"></div>
+            <div class="relative max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-4xl font-extrabold text-white sm:text-5xl md:text-6xl">
+                    <span class="block">Search Messages</span>
+                    <span class="block text-yellow-400 text-3xl sm:text-4xl mt-2">Find Your Products</span>
+                </h1>
+                <p class="mt-6 max-w-2xl mx-auto text-xl text-blue-200">
+                    Search offers and orders by keyword, brand, or product
+                </p>
+            </div>
+        </div>
+
+        <!-- Search Container -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+            <!-- Search Input -->
+            <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl shadow-2xl p-4 sm:p-6 mb-8">
+                <div class="relative">
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        placeholder="Search for Birkin, Kelly, Constance, etc..." 
+                        class="w-full px-3 sm:px-4 py-3 sm:py-4 pr-20 sm:pr-24 text-base sm:text-lg bg-white bg-opacity-100 border-0 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:bg-white text-gray-900 placeholder-gray-600 placeholder-opacity-100"
+                    >
+                    <div class="absolute inset-y-0 right-0 flex items-center pr-3 sm:pr-4 pointer-events-none">
+                        <span class="text-gray-700 font-medium text-xs sm:text-sm whitespace-nowrap" id="searchCount">0 results</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results -->
+            <div id="resultsContainer">
+                <div class="text-center py-12" id="initialState">
+                    <div class="w-24 h-24 mx-auto bg-blue-800 rounded-full flex items-center justify-center">
+                        <div class="text-4xl">🔍</div>
+                    </div>
+                    <h3 class="mt-4 text-lg font-medium text-white">Start Searching</h3>
+                    <p class="mt-2 text-sm text-blue-300">Type at least 2 characters to search messages</p>
+                </div>
+                
+                <div class="hidden" id="resultsList">
+                    <!-- Results will be inserted here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+        
+        // Simple search functionality
+        let allMessages = [];
+        const searchInput = document.getElementById('searchInput');
+        const resultsList = document.getElementById('resultsList');
+        const initialState = document.getElementById('initialState');
+        const searchCount = document.getElementById('searchCount');
+
+        // Load messages on page load
+        async function loadMessages() {
+            try {
+                const response = await fetch('/messages');
+                const data = await response.json();
+                // Filter for offers and orders only
+                allMessages = data.filter(msg => msg.category === 'offer' || msg.category === 'order');
+                console.log(`Loaded ${allMessages.length} messages`);
+            } catch (error) {
+                console.error('Error loading messages:', error);
+                showError('Failed to load messages. Please refresh the page.');
+            }
+        }
+
+        // Search functionality
+        function searchMessages(query) {
+            if (!query || query.length < 2) {
+                showInitialState();
+                return;
+            }
+
+            const searchTerm = query.toLowerCase();
+            const results = allMessages.filter(msg => {
+                const text = (msg.translated || msg.message || '').toLowerCase();
+                const number = (msg.number || '').toLowerCase();
+                return text.includes(searchTerm) || number.includes(searchTerm);
+            });
+
+            displayResults(results, query);
+        }
+
+        // Display results
+    function displayResults(results, query) {
+        if (results.length === 0) {
+            showNoResults();
+            return;
+        }
+
+        initialState.classList.add('hidden');
+        resultsList.classList.remove('hidden');
+        searchCount.textContent = `${results.length} results`;
+
+        resultsList.innerHTML = '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">' +
+            results.map(msg => createMessageCard(msg, query)).join('') +
+            '</div>';
+    }
+
+        // Create message card
+    function createMessageCard(msg, query) {
+        const text = msg.translated || msg.message || '';
+        const highlightedText = highlightSearchTerm(text, query);
+        const categoryStyles = msg.category === 'offer' 
+            ? { bg: 'bg-green-100', text: 'text-green-800', icon: '🛍️', label: 'OFFER' }
+            : { bg: 'bg-blue-100', text: 'text-blue-800', icon: '📦', label: 'ORDER' };
+
+        return `
+                <div class="message-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center space-x-2">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${categoryStyles.bg} ${categoryStyles.text}">
+                                    ${categoryStyles.icon} ${categoryStyles.label}
+                                </span>
+                                <span class="text-sm font-medium text-gray-500">${msg.number}</span>
+                            </div>
+                            <span class="text-sm text-gray-500">${formatDate(msg.timestamp)}</span>
+                        </div>
+                        <div class="text-gray-800 mb-4 leading-relaxed">${highlightedText}</div>
+                        ${msg.image ? `<img src="${msg.image}" alt="Product" class="w-full max-w-xs rounded-lg mt-3 border border-gray-200">` : ''}
+                        <div class="mt-4">
+                            <a href="index.html#msg-${msg._id}" 
+                               class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors">
+                                View Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `;
+    }
+
+        // Highlight search term
+        function highlightSearchTerm(text, query) {
+            if (!query) return text;
+            const regex = new RegExp(`(${escapeRegExp(query)})`, 'gi');
+            return text.replace(regex, '<span class="search-highlight">$1</span>');
+        }
+
+        // Utility functions
+        function escapeRegExp(string) {
+            return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        }
+
+        function formatDate(timestamp) {
+            if (!timestamp) return '';
+            const date = new Date(timestamp);
+            return date.toLocaleDateString('en-US', { 
+                month: 'short', 
+                day: 'numeric', 
+                year: 'numeric' 
+            });
+        }
+
+        function showInitialState() {
+            initialState.classList.remove('hidden');
+            resultsList.classList.add('hidden');
+            searchCount.textContent = '0 results';
+        }
+
+        function showNoResults() {
+            initialState.innerHTML = `
+                <div class="text-6xl mb-4">🔍</div>
+                <h3 class="text-xl font-semibold text-gray-700 mb-2">No results found</h3>
+                <p class="text-gray-500">Try different keywords</p>
+            `;
+            initialState.classList.remove('hidden');
+            resultsList.classList.add('hidden');
+            searchCount.textContent = '0 results';
+        }
+
+        function showError(message) {
+            initialState.innerHTML = `
+                <div class="text-6xl mb-4">⚠️</div>
+                <h3 class="text-xl font-semibold text-red-700 mb-2">Error</h3>
+                <p class="text-red-500">${message}</p>
+            `;
+            initialState.classList.remove('hidden');
+            resultsList.classList.add('hidden');
+        }
+
+        // Event listeners
+        searchInput.addEventListener('input', (e) => {
+            searchMessages(e.target.value);
+        });
+
+        // Initialize
+        loadMessages();
+        searchInput.focus();
+    </script>
+    
+    <!-- Swipe navigation -->
+    <script src="swipe.js"></script>
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Orders - Bag Offer App</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+  </script>
+</head>
+<body class="bg-blue-900 text-white">
+  <nav class="bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 shadow-2xl sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <div class="flex items-center space-x-3">
+          <div class="flex-shrink-0">
+            <div class="w-12 h-12 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-xl flex items-center justify-center shadow-lg">
+              <span class="text-2xl">👜</span>
+            </div>
+          </div>
+          <div>
+            <h1 class="text-2xl font-bold text-white tracking-tight">BagOffer</h1>
+            <p class="text-blue-200 text-xs">Premium Bags Marketplace</p>
+          </div>
+        </div>
+        
+        <!-- Desktop Menu -->
+        <div class="hidden md:block">
+          <div class="ml-10 flex items-baseline space-x-1">
+            <a href="index.html" class="text-blue-200 hover:bg-blue-700 hover:bg-opacity-75 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200">Home</a>
+            <a href="match.html" class="text-blue-200 hover:bg-blue-700 hover:bg-opacity-75 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200">Match</a>
+            <a href="orders.html" class="text-white bg-blue-700 bg-opacity-75 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200">Orders</a>
+            <a href="offers.html" class="text-blue-200 hover:bg-blue-700 hover:bg-opacity-75 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200">Offers</a>
+            <a href="search.html" class="text-blue-200 hover:bg-blue-700 hover:bg-opacity-75 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200">Search</a>
+            <a href="customers.html" class="text-blue-200 hover:bg-blue-700 hover:bg-opacity-75 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200">Customers</a>
+            <a href="send.html" class="text-blue-200 hover:bg-blue-700 hover:bg-opacity-75 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200">Send</a>
+            <a href="whatsapp-manager.html" class="bg-yellow-500 text-blue-900 hover:bg-yellow-400 px-3 py-2 rounded-md text-sm font-bold transition-all duration-200 shadow-sm">WhatsApp</a>
+            <a href="about.html" class="text-blue-200 hover:bg-blue-700 hover:bg-opacity-75 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200">About</a>
+          </div>
+        </div>
+        
+        <!-- Mobile menu button -->
+        <div class="md:hidden">
+          <button type="button" class="bg-blue-800 inline-flex items-center justify-center p-2 rounded-md text-blue-200 hover:text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-blue-800 focus:ring-white" onclick="toggleMenu()">
+            <span class="sr-only">Open main menu</span>
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="md:hidden hidden" id="mobile-menu">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-blue-800 bg-opacity-95 backdrop-blur-sm">
+        <a href="index.html" class="text-blue-200 hover:bg-blue-700 hover:bg-opacity-75 block px-3 py-2 rounded-md text-base font-medium">Home</a>
+        <a href="match.html" class="text-blue-200 hover:bg-blue-700 hover:bg-opacity-75 block px-3 py-2 rounded-md text-base font-medium">Match</a>
+        <a href="orders.html" class="text-white bg-blue-700 bg-opacity-75 block px-3 py-2 rounded-md text-base font-medium">Orders</a>
+        <a href="offers.html" class="text-blue-200 hover:bg-blue-700 hover:bg-opacity-75 block px-3 py-2 rounded-md text-base font-medium">Offers</a>
+        <a href="search.html" class="text-blue-200 hover:bg-blue-700 hover:bg-opacity-75 block px-3 py-2 rounded-md text-base font-medium">Search</a>
+        <a href="customers.html" class="text-blue-200 hover:bg-blue-700 hover:bg-opacity-75 block px-3 py-2 rounded-md text-base font-medium">Customers</a>
+        <a href="send.html" class="text-blue-200 hover:bg-blue-700 hover:bg-opacity-75 block px-3 py-2 rounded-md text-base font-medium">Send</a>
+        <a href="whatsapp-manager.html" class="bg-yellow-500 text-blue-900 hover:bg-yellow-400 block px-3 py-2 rounded-md text-base font-bold">WhatsApp</a>
+        <a href="about.html" class="text-blue-200 hover:bg-blue-700 hover:bg-opacity-75 block px-3 py-2 rounded-md text-base font-medium">About</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 py-8 px-4">
+    <div class="max-w-7xl mx-auto">
+      <!-- Header Section -->
+      <div class="text-center mb-8">
+        <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl mb-4 shadow-lg">
+          <span class="text-3xl">📦</span>
+        </div>
+        <h1 class="text-4xl font-bold text-gray-900 mb-2">Orders Dashboard</h1>
+        <p class="text-gray-600 text-lg">Manage and track all customer orders in real-time</p>
+      </div>
+
+      <!-- Stats Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-orange-500">
+          <div class="flex items-center">
+            <div class="bg-orange-100 rounded-lg p-3 mr-4">
+              <span class="text-2xl">📊</span>
+            </div>
+            <div>
+              <p class="text-sm text-gray-600">Total Orders</p>
+              <p class="text-2xl font-bold text-gray-900" id="totalOrders">0</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-blue-500">
+          <div class="flex items-center">
+            <div class="bg-blue-100 rounded-lg p-3 mr-4">
+              <span class="text-2xl">🌍</span>
+            </div>
+            <div>
+              <p class="text-sm text-gray-600">Languages</p>
+              <p class="text-2xl font-bold text-gray-900" id="totalLanguages">0</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-green-500">
+          <div class="flex items-center">
+            <div class="bg-green-100 rounded-lg p-3 mr-4">
+              <span class="text-2xl">⚡</span>
+            </div>
+            <div>
+              <p class="text-sm text-gray-600">Live Updates</p>
+              <p class="text-sm text-green-600 font-medium">Auto-refresh every 3s</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Orders Container -->
+      <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+        <div class="px-6 py-4 bg-gradient-to-r from-orange-500 to-red-500 text-white">
+          <h2 class="text-2xl font-bold flex items-center">
+            <span class="mr-2">📦</span>
+            Recent Orders
+          </h2>
+        </div>
+        <div class="p-6">
+          <div id="orderMessages" class="space-y-4">
+            <!-- Loading state -->
+            <div class="flex justify-center py-12" id="loadingState">
+              <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500"></div>
+            </div>
+            <!-- Empty state -->
+            <div class="text-center py-12 hidden" id="emptyState">
+              <div class="text-6xl mb-4">📭</div>
+              <h3 class="text-xl font-semibold text-gray-700 mb-2">No orders yet</h3>
+              <p class="text-gray-500">Orders will appear here when customers place them</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Ensure DOM is loaded before running any code
+    document.addEventListener('DOMContentLoaded', function() {
+      function getLanguageLabel(code) {
+        const map = {
+          'en': '🇬🇧 English', 'de': '🇩🇪 German', 'fr': '🇫🇷 French',
+          'es': '🇪🇸 Spanish', 'pt': '🇵🇹 Portuguese', 'ru': '🇷🇺 Russian',
+          'it': '🇮🇹 Italian', 'tr': '🇹🇷 Turkish', 'ar': '🇸🇦 Arabic',
+          'zh': '🇨🇳 Chinese', 'ja': '🇯🇵 Japanese'
+        };
+        return map[code] || code.toUpperCase();
+      }
+
+      async function loadOrders() {
+        try {
+          const res = await fetch('/messages');
+          if (!res.ok) {
+            throw new Error(`HTTP ${res.status}: ${res.statusText}`);
+          }
+          const messages = await res.json();
+          const orders = messages.filter(msg => msg.category === 'order')
+                                 .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+
+          // Update stats
+          const totalOrdersEl = document.getElementById('totalOrders');
+          const totalLanguagesEl = document.getElementById('totalLanguages');
+          const loadingStateEl = document.getElementById('loadingState');
+          const emptyStateEl = document.getElementById('emptyState');
+          const container = document.getElementById('orderMessages');
+
+          if (totalOrdersEl) totalOrdersEl.textContent = orders.length;
+          if (totalLanguagesEl) {
+            const uniqueLanguages = [...new Set(orders.map(msg => msg.language).filter(Boolean))];
+            totalLanguagesEl.textContent = uniqueLanguages.length;
+          }
+
+          // Hide loading state
+          if (loadingStateEl) loadingStateEl.classList.add('hidden');
+          
+          if (orders.length === 0) {
+            if (emptyStateEl) emptyStateEl.classList.remove('hidden');
+            if (container) container.innerHTML = '';
+            return;
+          }
+
+          if (emptyStateEl) emptyStateEl.classList.add('hidden');
+
+          if (container) {
+            container.innerHTML = orders.map(msg => {
+              const languageLabel = msg.language ? getLanguageLabel(msg.language) : '🌐 Unknown';
+              const displayName = msg.name ? `<span class="text-gray-600">(${msg.name})</span>` : '';
+              const timeAgo = new Date(msg.timestamp).toLocaleString();
+              
+              return `
+                <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:scale-[1.02] group">
+                  <div class="flex items-start justify-between mb-4">
+                    <div class="flex-1">
+                      <div class="flex flex-col sm:flex-row sm:items-center mb-2 space-y-1 sm:space-y-0">
+                        <div class="flex-1 min-w-0">
+                          <span class="font-bold text-gray-900 text-lg break-all">${msg.number}</span>
+                          ${displayName}
+                        </div>
+                        <span class="bg-orange-100 text-orange-800 text-xs font-semibold px-2.5 py-1 rounded-full flex-shrink-0">ORDER</span>
+                      </div>
+                      <p class="text-gray-600 mb-3 leading-relaxed break-words whitespace-pre-wrap">${msg.translated || msg.message}</p>
+                    </div>
+                  </div>
+                  
+                  <div class="flex flex-wrap gap-2 mb-3">
+                    <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-1 rounded-full flex items-center">
+                      ${languageLabel}
+                    </span>
+                    ${msg.price ? `<span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-1 rounded-full">Rs. ${msg.price}</span>` : ''}
+                  </div>
+                  
+                  ${msg.image ? `
+                    <div class="mb-4">
+                      <div class="relative group cursor-pointer">
+                        <div class="h-48 w-full rounded-lg border border-gray-200 overflow-hidden">
+                          <img src="${msg.image}" alt="Order image" class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-150">
+                        </div>
+                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-opacity duration-300 rounded-lg flex items-center justify-center">
+                          <span class="text-white text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black bg-opacity-50 px-2 py-1 rounded">Click to zoom</span>
+                        </div>
+                      </div>
+                    </div>
+                  ` : ''}
+                  
+                  <div class="flex flex-col sm:flex-row sm:items-center justify-between text-sm text-gray-500 gap-2">
+                    <span class="flex items-center break-words">
+                      <span class="mr-1 flex-shrink-0">🕒</span>
+                      <span class="break-words">${timeAgo}</span>
+                    </span>
+                    <a href="index.html#msg-${msg._id}" class="text-orange-600 hover:text-orange-800 font-medium flex items-center group-hover:underline flex-shrink-0">
+                      View Message
+                      <span class="ml-1 transform group-hover:translate-x-1 transition-transform flex-shrink-0">→</span>
+                    </a>
+                  </div>
+                </div>
+              `;
+            }).join('');
+          }
+        } catch (error) {
+          console.error('Error loading orders:', error);
+          const loadingStateEl = document.getElementById('loadingState');
+          if (loadingStateEl) {
+            loadingStateEl.innerHTML = `
+              <div class="text-center">
+                <div class="text-red-500 text-lg mb-2">⚠️ Error loading orders</div>
+                <button onclick="loadOrders()" class="text-orange-600 hover:text-orange-800 underline">Retry</button>
+              </div>
+            `;
+          }
+        }
+      }
+
+      loadOrders();
+      setInterval(loadOrders, 3000);
+    });
+  </script>
+<script src="swipe.js"></script>
+</body>
+</html>

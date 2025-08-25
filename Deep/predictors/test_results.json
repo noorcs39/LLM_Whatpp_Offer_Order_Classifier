@@ -1,0 +1,85 @@
+{
+  "results": {
+    "total": 10000,
+    "correct": 9617,
+    "incorrect": 383,
+    "accuracy": 96.17,
+    "misclassified": [
+      {
+        "text": "interested in green bag SHW",
+        "expected": "Order",
+        "predicted": "unknown"
+      },
+      {
+        "text": "grab this bag now",
+        "expected": "Offer",
+        "predicted": "unknown"
+      },
+      {
+        "text": "GRAB THIS BAG NOW",
+        "expected": "Offer",
+        "predicted": "unknown"
+      },
+      {
+        "text": "interested in gold bag ghw",
+        "expected": "Order",
+        "predicted": "unknown"
+      },
+      {
+        "text": "new bag ready",
+        "expected": "Offer",
+        "predicted": "unknown"
+      },
+      {
+        "text": "interested in black kelly phw",
+        "expected": "Order",
+        "predicted": "unknown"
+      },
+      {
+        "text": "INTERESTED IN NATA PICOTIN RGHW",
+        "expected": "Order",
+        "predicted": "unknown"
+      },
+      {
+        "text": "interested in craie kelly shw",
+        "expected": "Order",
+        "predicted": "unknown"
+      },
+      {
+        "text": "here is a bag",
+        "expected": "Offer",
+        "predicted": "unknown"
+      },
+      {
+        "text": "bag only 2500",
+        "expected": "Offer",
+        "predicted": "unknown"
+      },
+      {
+        "text": "interested in black bag SHW",
+        "expected": "Order",
+        "predicted": "unknown"
+      },
+      {
+        "text": "Interested in blue bag shw",
+        "expected": "Order",
+        "predicted": "unknown"
+      },
+      {
+        "text": "interested in nata bag ghw",
+        "expected": "Order",
+        "predicted": "unknown"
+      },
+      {
+        "text": "interested in craie Kelly SHW",
+        "expected": "Order",
+        "predicted": "unknown"
+      },
+      {
+        "text": "bag only 2500",
+        "expected": "Offer",
+        "predicted": "unknown"
+      }
+    ]
+  }
+}

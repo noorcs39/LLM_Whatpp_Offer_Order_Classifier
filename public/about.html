@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Match - Bag Offer App</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+  </script>
+</head>
+<body class="bg-blue-900 text-white">
+  <nav class="bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 shadow-2xl sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <div class="flex items-center space-x-3">
+          <div class="flex-shrink-0">
+            <div class="w-12 h-12 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-xl flex items-center justify-center shadow-lg">
+              <span class="text-2xl">👜</span>
+            </div>
+          </div>
+          <div>
+            <h1 class="text-2xl font-bold text-white tracking-tight">BagOffer</h1>
+            <p class="text-blue-200 text-xs">Premium Bags Marketplace</p>
+          </div>
+        </div>
+        
+        <!-- Desktop Menu -->
+        <div class="hidden md:block">
+          <div class="ml-10 flex items-baseline space-x-1">
+            <a href="index.html" class="text-blue-200 hover:bg-blue-700 hover:bg-opacity-75 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200">Home</a>
+            <a href="match.html" class="text-blue-200 hover:bg-blue-700 hover:bg-opacity-75 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200">Match</a>
+            <a href="orders.html" class="text-blue-200 hover:bg-blue-700 hover:bg-opacity-75 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200">Orders</a>
+            <a href="offers.html" class="text-blue-200 hover:bg-blue-700 hover:bg-opacity-75 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200">Offers</a>
+            <a href="search.html" class="text-blue-200 hover:bg-blue-700 hover:bg-opacity-75 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200">Search</a>
+            <a href="customers.html" class="text-blue-200 hover:bg-blue-700 hover:bg-opacity-75 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200">Customers</a>
+            <a href="send.html" class="text-blue-200 hover:bg-blue-700 hover:bg-opacity-75 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200">Send</a>
+            <a href="whatsapp-manager.html" class="bg-yellow-500 text-blue-900 hover:bg-yellow-400 px-3 py-2 rounded-md text-sm font-bold transition-all duration-200 shadow-sm">WhatsApp</a>
+            <a href="about.html" class="text-white bg-blue-700 bg-opacity-75 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200">About</a>
+          </div>
+        </div>
+        
+        <!-- Mobile menu button -->
+        <div class="md:hidden">
+          <button type="button" class="bg-blue-800 inline-flex items-center justify-center p-2 rounded-md text-blue-200 hover:text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-blue-800 focus:ring-white" onclick="toggleMenu()">
+            <span class="sr-only">Open main menu</span>
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="md:hidden hidden" id="mobile-menu">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-blue-800 bg-opacity-95 backdrop-blur-sm">
+        <a href="index.html" class="text-blue-200 hover:bg-blue-700 hover:bg-opacity-75 block px-3 py-2 rounded-md text-base font-medium">Home</a>
+        <a href="match.html" class="text-blue-200 hover:bg-blue-700 hover:bg-opacity-75 block px-3 py-2 rounded-md text-base font-medium">Match</a>
+        <a href="orders.html" class="text-blue-200 hover:bg-blue-700 hover:bg-opacity-75 block px-3 py-2 rounded-md text-base font-medium">Orders</a>
+        <a href="offers.html" class="text-blue-200 hover:bg-blue-700 hover:bg-opacity-75 block px-3 py-2 rounded-md text-base font-medium">Offers</a>
+        <a href="search.html" class="text-blue-200 hover:bg-blue-700 hover:bg-opacity-75 block px-3 py-2 rounded-md text-base font-medium">Search</a>
+        <a href="customers.html" class="text-blue-200 hover:bg-blue-700 hover:bg-opacity-75 block px-3 py-2 rounded-md text-base font-medium">Customers</a>
+        <a href="send.html" class="text-blue-200 hover:bg-blue-700 hover:bg-opacity-75 block px-3 py-2 rounded-md text-base font-medium">Send</a>
+        <a href="whatsapp-manager.html" class="bg-yellow-500 text-blue-900 hover:bg-yellow-400 block px-3 py-2 rounded-md text-base font-bold">WhatsApp</a>
+        <a href="about.html" class="text-white bg-blue-700 bg-opacity-75 block px-3 py-2 rounded-md text-base font-medium">About</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="p-6 max-w-4xl mx-auto">
+    <!-- Hero Section -->
+    <div class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white p-8 rounded-2xl shadow-2xl mb-8">
+      <div class="text-center">
+        <div class="w-20 h-20 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+          <span class="text-3xl">👜</span>
+        </div>
+        <h1 class="text-4xl font-bold mb-2">About BagOffer</h1>
+        <p class="text-blue-200 text-lg">Revolutionizing bag commerce through WhatsApp automation</p>
+      </div>
+    </div>
+
+    <!-- Features Grid -->
+    <div class="grid md:grid-cols-2 gap-6 mb-8">
+      <div class="bg-white text-gray-800 p-6 rounded-xl shadow-lg">
+        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-3">
+          <span class="text-2xl">📱</span>
+        </div>
+        <h3 class="text-xl font-bold mb-2">WhatsApp Integration</h3>
+        <p class="text-gray-600">Seamlessly connect with customers and suppliers through automated WhatsApp messaging system.</p>
+      </div>
+      
+      <div class="bg-white text-gray-800 p-6 rounded-xl shadow-lg">
+        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-3">
+          <span class="text-2xl">🤖</span>
+        </div>
+        <h3 class="text-xl font-bold mb-2">AI-Powered Matching</h3>
+        <p class="text-gray-600">Intelligent classification of offers and orders using advanced machine learning algorithms.</p>
+      </div>
+      
+      <div class="bg-white text-gray-800 p-6 rounded-xl shadow-lg">
+        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-3">
+          <span class="text-2xl">⚡</span>
+        </div>
+        <h3 class="text-xl font-bold mb-2">Real-Time Processing</h3>
+        <p class="text-gray-600">Instant processing and matching of customer requests with available supplier offers.</p>
+      </div>
+      
+      <div class="bg-white text-gray-800 p-6 rounded-xl shadow-lg">
+        <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-3">
+          <span class="text-2xl">🌐</span>
+        </div>
+        <h3 class="text-xl font-bold mb-2">Multi-Language Support</h3>
+        <p class="text-gray-600">Automatic translation capabilities to serve customers across different languages and regions.</p>
+      </div>
+    </div>
+
+    <!-- Company Story -->
+    <div class="bg-white text-gray-800 p-8 rounded-xl shadow-lg mb-8">
+      <h2 class="text-3xl font-bold mb-4 text-gray-900">Our Story</h2>
+      <div class="prose max-w-none text-gray-600">
+        <p class="mb-4">
+          Founded in 2024, BagOffer emerged from a simple observation: the bag industry needed a smarter way to connect buyers and sellers. Traditional methods were slow, inefficient, and missed opportunities for both customers looking for specific bags and suppliers with excess inventory.
+        </p>
+        <p class="mb-4">
+          Our platform leverages the power of WhatsApp's global reach combined with cutting-edge AI technology to create seamless connections. By automatically classifying messages, translating communications, and matching compatible offers and orders, we've transformed how the bag industry operates.
+        </p>
+        <p>
+          Today, we serve thousands of customers and suppliers across multiple countries, processing hundreds of messages daily and facilitating successful business relationships that drive the bag industry forward.
+        </p>
+      </div>
+    </div>
+
+    <!-- Contact Information -->
+    <div class="bg-gradient-to-r from-gray-50 to-blue-50 text-gray-800 p-8 rounded-xl shadow-lg">
+      <h2 class="text-2xl font-bold mb-6 text-gray-900">Get In Touch</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <h3 class="text-lg font-semibold mb-3">Contact Information</h3>
+          <div class="space-y-3">
+            <div class="flex items-center">
+              <span class="text-2xl mr-3">📞</span>
+              <div>
+                <p class="font-medium">Phone</p>
+                <p class="text-gray-600">+923103555217</p>
+              </div>
+            </div>
+            <div class="flex items-center">
+              <span class="text-2xl mr-3">📧</span>
+              <div>
+                <p class="font-medium">Email</p>
+                <p class="text-gray-600">info@bagofferapp.com</p>
+              </div>
+            </div>
+            <div class="flex items-center">
+              <span class="text-2xl mr-3">🌐</span>
+              <div>
+                <p class="font-medium">Website</p>
+                <p class="text-gray-600">bagofferapp.com</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div>
+          <h3 class="text-lg font-semibold mb-3">Business Hours</h3>
+          <div class="space-y-2 text-gray-600">
+            <p><strong>Monday - Friday:</strong> 9:00 AM - 6:00 PM PST</p>
+            <p><strong>Saturday:</strong> 10:00 AM - 4:00 PM PST</p>
+            <p><strong>Sunday:</strong> Closed</p>
+            <p class="text-sm mt-3">WhatsApp automation runs 24/7 for message processing</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+<script src="swipe.js"></script>
+</body>
+</html>
